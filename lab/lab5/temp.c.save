@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <ctype.h>
+int main(int argc,char**argv){
+if(argc != 2){
+fprintf(stderr, "usage: %s str\nYou should only give one str\n", argv[0]);
+return (1);
+}
+else{
+printf("Str Address is %p \n", argv[1]);
+int 
+for(i=0;i<sizeof(argv[1]);i++){
+  if()
+}
+legnth = strlen(argv[1]);
+space = ' ';
+printf("length of a space in char is %lu\n", sizeof(space));
+char character;
+character = 'z';
+printf("length of a character in char is %lu\n", sizeof(character));
+char number;
+number = '1';
+printf("length of a number in char is %lu\n", sizeof(number));
+temp = argv[1];
+int arrsize;
+arrsize = sizeof(argv[1]);
+printf("Number of char is %d\n", arrsize);
+printf("Address of arg1 is %p\n", temp);
+char beg;
+beg=*temp;
+printf("Char is %c\n", beg);
+}return (0);
+}

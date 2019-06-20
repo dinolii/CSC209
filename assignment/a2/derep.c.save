@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+void process(File *fp);
+int main(int argc, char**argv){
+	int i;
+	File *fp;
+		extern void process(File *fp);
+	if(argc == 1){
+	    process(stdin);
+	}
+	else{
+	    for(i=1; i<argc; i++){
+		if(strcmp(argv[i], "-")== 0){
+		    process(stdin);
+		}
+		else{
+		    if ((fp = fopen(argv[i], "r")) == NULL) {
+                    perror(argv[i]);
+                    return 1;
+                }
+                process(fp);
+                fclose(fp);
+		}
+	    }
+	}
+    return 0;
+}
+
+void process(File *fp){
+
+}

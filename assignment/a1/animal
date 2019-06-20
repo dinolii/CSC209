@@ -1,0 +1,108 @@
+#Test number of arguments
+if test $# -ne 1
+then
+    echo usage: "$0 file" >&2
+    exit 1
+# If there is only one argument
+# Try to change to this directory
+elif `cd $1`
+then
+    # Track number of files in the current directory
+    dire=$1
+    file=`ls -l $dire | wc -l`
+    numfile=`expr $file - 1`
+    # Begin of prompt
+    echo Think of an animal\.
+    # As long as there are more than one files in the directory
+    # Echo the question and record user's guess
+    # Change to the proper directory based on the user's guess
+    while [ $numfile -ne 1 ]
+    do
+        question=`cat $dire/question`
+        echo $question
+        if read guess
+        then
+            if [ $guess = "y" -o $guess = "yes" ]
+            then
+                dire="$dire/yes"
+            elif [ $guess = 'n' -o $guess = 'no' ]
+            then
+                dire="$dire/no"
+            fi
+            file=`ls -l $dire | wc -l`
+            numfile=`expr $file - 1`
+        else
+            exit -0
+        fi
+    done
+    # When there is only one file in the directory
+    # Ask for user's answer
+    if [ $numfile -eq 1 ]
+    then
+        name=`cat $dire/name`
+        echo Is your animal a $name\?
+        if read guess
+        # If user's answer is yes this is simple
+        then
+            if [ $guess = "y" -o $guess = "yes" ]
+            then
+                echo I got it!
+        # In case user's guess is no
+            elif [ $guess = "n" -o $guess = "no" ]
+            then
+        # Prompt message and read user's guess
+                echo Aw, I lose\. " "What animal were you thinking of\?
+                if read userguess
+                then
+        # Prompt message and read user's question
+                    echo Tell me a question which would distinguish a $name from a $userguess\.
+                    if read userquestion
+                    then
+                        # Prompt message and read user's answer
+                        echo What would be the answer for a $userguess\?
+                        if read useranswer
+                        then
+                            # Prompt message
+                            # Write user's question to the question file
+                            # Make two new directories
+                            # if user's answer is yes
+                            # Write user's guess to the name file under yes directory
+                            # Move the name file under no directory
+                            echo I\'ll remember that\.
+                            echo $userquestion >"$dire/question"
+                            mkdir $dire/yes
+                            mkdir $dire/no
+                            if [ $useranswer = "y" -o $useranswer = "yes" ]
+                            then
+                                echo $userguess >"$dire/yes/name"
+                                mv "$dire/name" "$dire/no/name"
+                            # If user's answer is no
+                            # Write user's guess to the name file under no directory
+                            # Move the name file under yes directory
+                            elif [ $useranswer = "n" -o $useranswer = "no" ]
+                            then
+                                echo $userguess >"$dire/no/name"
+                                mv "$dire/name" "$dire/yes/name"
+                            fi
+                        # This maps to if user gives an EOF during the process of entering answer
+                        else
+                            exit 0
+                        fi
+                    # This maps to if user gives an EOF during the process of entering question
+                    else
+                        exit 0
+                    fi
+                # This maps to if user gives an EOF during the process of entering guess
+                else
+                    exit 0
+               fi
+            fi
+        # This maps to if user gives an EOF during the process of entering yes/no
+        else
+            exit 0
+        fi
+    fi
+# This maps if any error occurred during the cd process
+else
+    exit 1
+fi

@@ -1,0 +1,1 @@
+usage: a1_copy file

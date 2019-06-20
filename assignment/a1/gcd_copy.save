@@ -1,0 +1,37 @@
+gcd=0
+operand1=0
+operand2=0
+if test $# -ne 0
+then
+(for i in `cat "$@"`
+do
+   if test $operand1 -eq 0
+   then
+       operand1=$i
+   elif [ $operand1 -ne 0 -a $operand2 -eq 0 -a $gcd -eq 0 ]
+   then
+       operand2=$i
+       while [ $operand2 -ne 0 ]
+       do
+           temp=$operand1
+           operand1=$operand2
+           operand2=`expr $temp % $operand2`
+       done
+       gcd=$operand1
+   elif [ $operand1 -ne 0 -a $gcd -ne 0 -a $operand2 -eq 0 ]
+   then
+        operand2=$i
+        while [ $operand2 -ne 0 ]
+        do
+           temp=$operand1
+           operand1=$operand2
+           operand2=`expr $temp % $operand2`
+        done
+        gcd=$operand1
+        operand2=$i
+   fi
+
+done
+echo $gcd
+)
+fi

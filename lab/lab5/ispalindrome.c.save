@@ -1,0 +1,13 @@
+
+naninclude <stdio.h>
+#include <ctype.h>
+int main(int argc,char**argv){
+if(argc != 2){
+fprintf(stderr, "usage: %s str\nYou should only give one str\n", argv[0]);
+return (1);
+}
+else{
+printf("Number of arguments %d\n", argc);
+printf("Str is %s \n", argv[1]);
+}return (0);
+}

@@ -1,0 +1,12 @@
+:
+# (substitute the "ispalindrome" invocation with an appropriate path name as
+#  needed)
+
+/u/csc209h/summer/pub/lab/05/permute $* |
+    while read line
+    do
+	if ./ispalindrome "$line"
+	then
+	    echo "$line"
+	fi
+    done

@@ -1,0 +1,45 @@
+# Initialize Variables
+gcd=0
+operand1=0
+operand2=0
+# Loop over argument or stdin
+(for i in `cat "$@"`
+do
+    # In case the operand 1 is 0 which means the loop is doing its first iteration
+    # Assign item to the operand
+    if test $operand1 -eq 0
+    then
+        operand1=$i
+    # In case the operand 2 is 0 but operand 1 and gcd are not 0.  Ie) The loop is doing its second iteration
+    # Assign i to operand2
+    # Doing the gcd algorithm
+    # Assign result to gcd
+    elif [ $operand1 -ne 0 -a $operand2 -eq 0 -a $gcd -eq 0 ]
+    then
+        operand2=$i
+        while [ $operand2 -ne 0 ]
+	do
+            temp=$operand1
+            operand1=$operand2
+	    operand2=`expr $temp % $operand2`
+	done
+	gcd=$operand1
+    # In case all of operand1, operand2, and gcd are not 0.  i.e)  The loop is doing its third iteration of after
+    # Assign i to operand2
+    # Do the gcd algorithm
+    # Assign result to the gcd
+    elif [ $operand1 -ne 0 -a $gcd -ne 0 -a $operand2 -eq 0 ]
+    then
+	operand2=$i
+	while [ $operand2 -ne 0 ]
+	do
+            temp=$operand1
+	    operand1=$operand2
+	    operand2=`expr $temp % $operand2`
+	done
+	gcd=$operand1
+	operand2=$i
+    fi
+done
+echo $gcd
+	)
