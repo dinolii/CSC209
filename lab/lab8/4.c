@@ -43,6 +43,21 @@ int main()
 
 void insert(int key, int data)
 {
+	struct item *p = head;
+	struct item* item;
+	item = malloc(sizeof(struct item));
+	if (item == NULL) {
+		fprintf(stderr, "Out of memory\n");
+		exit(1);
+	}
+	else {
+		if (head == NULL) {
+			item->key = key;
+			item->data = data;
+			item->next = head;
+			head = item;
+		}
+	}
 }
 
 
