@@ -44,16 +44,14 @@ void filllist()
 
 int search(int key) /* returns -1 if not found */
 {
-	int index = 0;
 	struct item* p = head;
 	while (p != NULL) {
 		if (p->key == key) {
-			return index;
+			return p->data;
 		}
 		else if (p->key > key) {
 			return -1;
 		}
-		index = index + 1;
 		p = p->next;
 	}
 	return -1;
