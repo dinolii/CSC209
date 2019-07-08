@@ -53,11 +53,18 @@ void insert(int key, int data)
 	else {
 		item->key = key;
 		item->data = data;
+		printf("%d :%d\n", item->key, item->data);
 		// Insert to the head
-		if (head == NULL || key < head->key) {
+		if (head == NULL) {
 			item->next = head;
 			head = item;
 		}
+		else if(head != NULL && p->key<key){
+			printf("Enter else if\n");
+			item->next = head;
+			head =item;
+		}
+		else{
 		int found = 0;
 		// Insert to the middle
 		while (p != NULL && p->next != NULL && found != 1) {
@@ -69,6 +76,7 @@ void insert(int key, int data)
 		}
 		if (found == 0) {
 			p->next = item;
+		}
 		}
 	}
 }
