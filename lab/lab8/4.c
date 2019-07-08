@@ -51,11 +51,23 @@ void insert(int key, int data)
 		exit(1);
 	}
 	else {
+		item->key = key;
+		item->data = data;
+		// Insert to the head
 		if (head == NULL) {
 			item->key = key;
 			item->data = data;
 			item->next = head;
 			head = item;
+		}
+		bool found = false;
+		// Insert to the middle
+		while (p != NULL && p->next != NULL && !(found)) {
+			if (p->key <= key && p->next->key > key) {
+				found = true;
+				item->next = p->next;
+				p->next = item;
+			}
 		}
 	}
 }
