@@ -41,8 +41,8 @@ void printall()
 	struct item *p;
 	p = head;
 	while (p != NULL) {
-		printf("%d: %d\n", head->key, head->data);
-		head = head->next;
+		printf("%d: %d\n", p->key, p->data);
+		p = p->next;
 	}
 	printf("[end]\n");
 }
