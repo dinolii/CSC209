@@ -71,6 +71,16 @@ void delete(int key)
 			free(p);
 			head = nex;
 		}
+		else {
+			struct item* prev;
+			prev = NULL;
+			for (p = head; p && p->key != key; p = p->next) {
+				prev = p;
+			}
+			if (p->key == key) {
+				printf("prev's key is %d\n", prev->key);
+			}
+		}
 	}
 }
 
