@@ -24,7 +24,12 @@ int main()
     printall();
 	delete(5);
 	printall();
-
+    delete(22);
+    printall();
+    delete(46);
+    printall();
+    delete(46);
+    printall();
 /*
 
     printf("After delete(22):\n");
@@ -77,8 +82,9 @@ void delete(int key)
 			for (p = head; p && p->key != key; p = p->next) {
 				prev = p;
 			}
-			if (p->key == key) {
-				printf("prev's key is %d\n", prev->key);
+			if (p && p->key == key) {
+				prev->next = p->next;
+				free(p);
 			}
 		}
 	}
