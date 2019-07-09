@@ -23,7 +23,7 @@ int main()
     printf("With all five items:\n");
     printall();
 	
-/*
+
 
     printf("After delete(22):\n");
     delete(22);
@@ -35,7 +35,7 @@ int main()
     delete(30);
     printall();
 
-*/
+
 
     return(0);
 }
