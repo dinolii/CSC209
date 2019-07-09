@@ -13,32 +13,8 @@ int main()
 {
     extern void insert(int key, int data), delete(int key), printall();
     extern int search(int key);
-	//Test case 1 delete from null
-	delete(20);
-	printall();
-	//Test case 2 delete head with a single node
-	insert(20, 2);
-	delete(20);
-	printall();
-	//Test case 3 delete head with nodes after
-	insert(20, 2);
-	insert(30, 3);
-        printall();
-	delete(20);
-	printall();
-	//Test case 4 delete from middle of the list
-	insert(40, 4);
-	insert(50, 5);
-        printall();
-	delete(40);
-	printall();
-	//Test case 5 delete the last node with no node after
-	delete(50);
-	printall();
-	//Test case 6 print the last and only node in the list
-	delete(30);
-	printall();
-    /*insert(38, 3);
+	
+	insert(38, 3);
     insert(20, 2);
     insert(5, 0);
     insert(22, 6);
@@ -46,15 +22,7 @@ int main()
 
     printf("With all five items:\n");
     printall();
-	delete(5);
-	printall();
-    delete(22);
-    printall();
-    delete(46);
-    printall();
-    delete(46);
-    printall();
-	*/
+	
 /*
 
     printf("After delete(22):\n");

@@ -14,12 +14,11 @@ int main()
     extern void insert(int key, int data), delete(int key), printall();
     extern int search(int key);
 
-    insert(1, 1);
-    insert(5, 3);
-    insert(2, 2);
-    insert(7, 6);
-    insert(6, 4);
-    insert(6, 5);
+	insert(38, 3);
+	insert(20, 2);
+	insert(5, 0);
+	insert(22, 6);
+	insert(46, 18);
     printf("With all five items:\n");
     printall();
 
