@@ -23,11 +23,13 @@ int main()
 	//Test case 3 delete head with nodes after
 	insert(20, 2);
 	insert(30, 3);
-	delete(30);
+        printall();
+	delete(20);
 	printall();
 	//Test case 4 delete from middle of the list
 	insert(40, 4);
 	insert(50, 5);
+        printall();
 	delete(40);
 	printall();
 	//Test case 5 delete the last node with no node after
