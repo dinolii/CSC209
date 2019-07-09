@@ -44,7 +44,7 @@ int main()
 void insert(int key, int data)
 {
     struct item *new, *prev;
-
+	struct item** pp;
     /* create the new item */
     if ((new = malloc(sizeof(struct item))) == NULL) {
         fprintf(stderr, "out of memory!\n");  /* unlikely */
@@ -52,27 +52,8 @@ void insert(int key, int data)
     }
     new->key = key;
     new->data = data;
-
-    /* find the node it goes after; NULL if it goes at the front */
-    if (head == NULL || head->key >= key) {
-        prev = NULL;
-    } else {
-        for (prev = head;
-                prev->next && prev->next->key < key;
-                prev = prev->next)
-            ;
-    }
-
-    /* link it in */
-    if (prev == NULL) {
-        /* goes at the head of the list */
-        new->next = head;
-        head = new;
-    } else {
-        /* goes after 'prev' */
-        new->next = prev->next;
-        prev->next = new;
-    }
+	for (pp = &head; (*pp)->next && (*pp)->next->key < key; pp = &(*pp)->next);
+ 
 }
 
 
