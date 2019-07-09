@@ -53,14 +53,12 @@ void insert(int key, int data)
 	else {
 		item->key = key;
 		item->data = data;
-		printf("%d :%d\n", item->key, item->data);
 		// Insert to the head
 		if (head == NULL) {
 			item->next = head;
 			head = item;
 		}
-		else if(head != NULL && p->key<key){
-			printf("Enter else if\n");
+		else if(head != NULL && key < p->key){
 			item->next = head;
 			head =item;
 		}
@@ -74,6 +72,7 @@ void insert(int key, int data)
 				p->next = item;
 			}
 		}
+		printf("End of the list\n");
 		if (found == 0) {
 			p->next = item;
 		}
