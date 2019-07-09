@@ -15,15 +15,10 @@ int main()
     extern int search(int key);
 
     insert(38, 3);
-    printall();
     insert(20, 2);
-    printall();
     insert(5, 0);
-    printall();
     insert(22, 6);
-    printall();
     insert(46, 18);
-    printall();
     printf("With all five items:\n");
     printall();
 
@@ -70,16 +65,13 @@ void insert(int key, int data)
 		int found = 0;
 		// Insert to the middle
 		while (p != NULL && p->next != NULL && found != 1) {
-			printf("p's key %d p'next's %d\n", p->key, p->next->key);
 			if (p->key <= key && p->next->key >= key) {
-                                printf("yes\n");
 				found = 1;
 				item->next = p->next;
 				p->next = item;
 			}
  			p = p->next;
 		}
-		printf("End of the list\n");
 		if (found == 0) {
 			p->next = item;
 		}
