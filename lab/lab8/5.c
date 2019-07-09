@@ -43,7 +43,7 @@ int main()
 
 void insert(int key, int data)
 {
-    struct item *new, *prev;
+    struct item *new;
 	struct item** pp;
     /* create the new item */
     if ((new = malloc(sizeof(struct item))) == NULL) {
@@ -52,7 +52,9 @@ void insert(int key, int data)
     }
     new->key = key;
     new->data = data;
-	for (pp = &head; (*pp)->next && (*pp)->next->key < key; pp = &(*pp)->next);
+	for (pp = &head; (*pp)&& (*pp)->key < key; pp = &(*pp)->next);
+	new->next=*pp;
+	*pp = new;
  
 }
 
