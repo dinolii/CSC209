@@ -22,6 +22,8 @@ int main()
 
     printf("With all five items:\n");
     printall();
+	delete(5);
+	printall();
 
 /*
 
@@ -61,6 +63,15 @@ void insert(int key, int data)
 
 void delete(int key)
 {
+	struct item *p;
+	p = head;
+	if (p != NULL) {
+		if (p->key == key) {
+			struct item *nex = head->next;
+			free(p);
+			head = nex;
+		}
+	}
 }
 
 
