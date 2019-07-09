@@ -25,6 +25,17 @@ int main()
 	insert(30, 3);
 	delete(30);
 	printall();
+	//Test case 4 delete from middle of the list
+	insert(40, 4);
+	insert(50, 5);
+	delete(40);
+	printall();
+	//Test case 5 delete the last node with no node after
+	delete(50);
+	printall();
+	//Test case 6 print the last and only node in the list
+	delete(30);
+	printall();
     /*insert(38, 3);
     insert(20, 2);
     insert(5, 0);
