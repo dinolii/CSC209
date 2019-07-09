@@ -13,8 +13,19 @@ int main()
 {
     extern void insert(int key, int data), delete(int key), printall();
     extern int search(int key);
-
-    insert(38, 3);
+	//Test case 1 delete from null
+	delete(20);
+	printall();
+	//Test case 2 delete head with a single node
+	insert(20, 2);
+	delete(20);
+	printall();
+	//Test case 3 delete head with nodes after
+	insert(20, 2);
+	insert(30, 3);
+	delete(30);
+	printall();
+    /*insert(38, 3);
     insert(20, 2);
     insert(5, 0);
     insert(22, 6);
@@ -30,6 +41,7 @@ int main()
     printall();
     delete(46);
     printall();
+	*/
 /*
 
     printf("After delete(22):\n");
