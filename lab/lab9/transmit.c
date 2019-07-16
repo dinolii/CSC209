@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv){
     if(argc != 3){
-        fprintf(stderr, "usage: transmit pid character");
+        fprintf(stderr, "usage: transmit pid character\n");
         return 1;
     }
     int pid = atoi(argv[1]);
