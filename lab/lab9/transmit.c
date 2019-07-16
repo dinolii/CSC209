@@ -4,10 +4,6 @@
 #include <signal.h>
 
 int main(int argc, char **argv){
-    if(argc != 3){
-        fprintf(stdee, "usage: transmit pid character");
-        return 1;
-    }
     int pid = atoi(argv[1]);
     char temp = *(argv[2]);
     int count = 0;
@@ -19,8 +15,7 @@ int main(int argc, char **argv){
             kill(pid, SIGUSR1);
         }
         temp <<= 1;
-        coutn ++;
+        count ++;
         usleep(100000);
     }
-    return 0;
 }
