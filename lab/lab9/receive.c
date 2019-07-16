@@ -3,7 +3,7 @@
 #include <signal.h>
 #include <unistd.h>
 int count = 0;
-int sig = 0
+int sig = 0;
 void receive_signal(int signal){
     sig <<= 1;
     if(signal == SIGUSR2){
@@ -12,6 +12,7 @@ void receive_signal(int signal){
     count += 1;
     if(count == 8){
         printf("%c\n", sig);
+        exit(0);
     }
 }
 

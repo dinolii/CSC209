@@ -15,7 +15,7 @@ int main(int argc, char **argv){
             kill(pid, SIGUSR1);
         }
         temp <<= 1;
-        coutn ++;
+        count ++;
         usleep(100000);
     }
 }
