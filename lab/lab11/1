@@ -1,0 +1,4 @@
+#!/bin/sh
+# This represents a long complicated calculation
+sleep 4
+echo 42
