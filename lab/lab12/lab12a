@@ -1,0 +1,22 @@
+b3175-21:~$ nc curly.cs.toronto.edu 80
+GET /hello.html HTTP/1.1
+Host: curly.cs.toronto.edu
+
+HTTP/1.1 200 OK
+Date: Thu, 01 Aug 2019 00:18:54 GMT
+Server: Apache/2.4.18 (Ubuntu)
+Last-Modified: Thu, 15 Feb 2018 16:25:02 GMT
+ETag: "3d-56542ab712380"
+Accept-Ranges: bytes
+Content-Length: 61
+Content-Type: text/html
+
+<html>
+<body>
+<h1> Hello! </h1>
+Hello, world
+</body>
+</html>
+^C
+b3175-21:~$ 
+
